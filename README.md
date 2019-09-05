@@ -5,6 +5,7 @@ implemented by HuggingFace in [pytorch-transformers](https://github.com/huggingf
 
 The main script is [run_model.sh](run_model.sh) which downloads the XLNet QA model trained on Quoref from S3 and predicts from `/quoref/nolabels.json`, which is the location at which the leaderboard
 mounts the input file. It runs two different Beaker experiments for development and test sets, and in both experiments, the input file is mounted at the same location.
+Note that `/quoref/` is mounted as a read-only file system. If you need to write temporary files, please do so in `/tmp/`.
 
 Follow the instructions below to create a [Docker](https://www.docker.com) container and publish it as a [Beaker](https://beaker.org/) image, which can then be submitted as a leaderboard entry.
 
